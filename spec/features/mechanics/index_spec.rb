@@ -10,9 +10,11 @@ describe "mechanics show page" do
 
     expect(page).to have_content("All Mechanics")
 
-    expect(page).to have_content(mechanic_1.name)
-    expect(page).to have_content(mechanic_2.name)
-    expect(page).to have_content("#{mechanic_1.years_of_exp} years of experience")
-    expect(page).to have_content("#{mechanic_2.years_of_exp} years of experience")
+    within(".mechanics-list") do
+      expect(page).to have_link(mechanic_1.name)
+      expect(page).to have_link(mechanic_2.name)
+      expect(page).to have_content("#{mechanic_1.years_of_exp} years of experience")
+      expect(page).to have_content("#{mechanic_2.years_of_exp} years of experience")
+    end
   end
 end

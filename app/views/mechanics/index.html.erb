@@ -2,7 +2,7 @@
 
 <section class="mechanics-list">
   <% @mechanics.each do |mechanic| %>
-    <%= mechanic.name %> -
+    <%= link_to mechanic.name, "/mechanics/#{mechanic.id}" %> -
     <%= mechanic.years_of_exp %> years of experience<br>
   <% end %>
 </section>

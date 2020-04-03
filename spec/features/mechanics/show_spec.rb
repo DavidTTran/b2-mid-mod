@@ -11,14 +11,16 @@ describe "mechanics show page" do
 
     @ride_mech_1 = RideMechanic.create(mechanic: @mechanic_1, ride: @ride_1)
     @ride_mech_2 = RideMechanic.create(mechanic: @mechanic_1, ride: @ride_3)
-
   end
+
   it "displays the names of all the rides they work on" do
     visit "/mechanics/#{@mechanic_1.id}"
 
-    expect(page).to have_content("Current rides they're working on:")
-    expect(page).to have_content(@ride_1.name)
-    expect(page).to have_content(@ride_3.name)
+    within(".ride-mechanic-list") do
+      expect(page).to have_content("Current rides they're working on:")
+      expect(page).to have_content(@ride_1.name)
+      expect(page).to have_content(@ride_3.name)
+    end
   end
 
   it "displays a form to add an existing ride" do
@@ -29,8 +31,10 @@ describe "mechanics show page" do
     click_on "Submit"
 
     expect(current_path).to eq("/mechanics/#{@mechanic_1.id}")
-    expect(page).to have_content(@ride_1.name)
-    expect(page).to have_content(@ride_2.name)
-    expect(page).to have_content(@ride_3.name)
+    within(".ride-mechanic-list") do
+      expect(page).to have_content(@ride_1.name)
+      expect(page).to have_content(@ride_2.name)
+      expect(page).to have_content(@ride_3.name)
+    end
   end
 end

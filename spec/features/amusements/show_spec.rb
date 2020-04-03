@@ -12,9 +12,13 @@ describe "amusments park show page" do
 
     expect(page).to have_content(park_1.name)
     expect(page).to have_content("Admissions: $#{park_1.admission}")
-    expect(page).to have_content(ride_1.name)
-    expect(page).to have_content(ride_2.name)
-    expect(page).to have_content(ride_3.name)
+
+    within(".rides-list") do
+      expect(page).to have_content(ride_1.name)
+      expect(page).to have_content(ride_2.name)
+      expect(page).to have_content(ride_3.name)
+    end
+
     expect(page).to have_content("Average Thrill Rating of Rides: 7.0/10")
   end
 end

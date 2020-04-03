@@ -1,7 +1,7 @@
 <h2><%= @amusement_park.name %></h2>
 <h4>Admissions: $<%= @amusement_park.admission %></h4>
 
-<section>
+<section class="rides-list">
   Rides: <% @amusement_park.rides.each do |ride| %>
     <li><%= ride.name %></li>
   <% end %>
