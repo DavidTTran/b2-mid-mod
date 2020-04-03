@@ -37,4 +37,13 @@ describe "mechanics show page" do
       expect(page).to have_content(@ride_3.name)
     end
   end
+
+  it "errors when trying to add an invalid ride" do
+    visit "/mechanics/#{@mechanic_1.id}"
+    fill_in :ride_id, with: 999
+    click_on "Submit"
+
+    expect(page).to have_content("A ride with that ID doesn't exist.")
+
+  end
 end
