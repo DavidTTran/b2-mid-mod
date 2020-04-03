@@ -12,7 +12,7 @@ describe "mechanics show page" do
 
     expect(page).to have_content(mechanic_1.name)
     expect(page).to have_content(mechanic_2.name)
-    expect(page).to have_content(mechanic_1.years_of_exp)
-    expect(page).to have_content(mechanic_2.years_of_exp)
+    expect(page).to have_content("#{mechanic_1.years_of_exp} years of experience")
+    expect(page).to have_content("#{mechanic_2.years_of_exp} years of experience")
   end
 end
