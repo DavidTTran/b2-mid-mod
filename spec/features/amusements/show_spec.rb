@@ -8,7 +8,7 @@ describe "amusments park show page" do
     ride_2 = park_1.rides.create({name: "Storm Runner", thrill: 9})
     ride_3 = park_1.rides.create({name: "The Greate Bear", thrill: 7})
 
-    visit "/amusement-park/#{park_1.id}"
+    visit "/amusement-parks/#{park_1.id}"
 
     expect(page).to have_content(park_1.name)
     expect(page).to have_content("Admissions: $#{park_1.admission}")
