@@ -2,8 +2,11 @@
 <h4>Admissions: $<%= @amusement_park.admission %></h4>
 
 <section class="rides-list">
-  Rides: <% @amusement_park.rides_sorted.each do |ride| %>
-    <li><%= ride.name %></li>
-  <% end %>
+  Rides:
+  <ol>
+    <% @amusement_park.rides_sorted.each do |ride| %>
+      <li><%= ride.name %></li>
+    <% end %>
+  </ol>
 </section>
 <h4>Average Thrill Rating of Rides: <%= @amusement_park.average_thrill_rating %>/10</h4>
