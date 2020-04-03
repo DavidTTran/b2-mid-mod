@@ -13,3 +13,7 @@ park_1 = AmusementPark.create({name: "Hersey Park", admission: 50.00})
 ride_1 = park_1.rides.create({name: "Lightning Racer", thrill: 5})
 ride_2 = park_1.rides.create({name: "Storm Runner", thrill: 9})
 ride_3 = park_1.rides.create({name: "The Greate Bear", thrill: 7})
+
+ride_mech_1 = RideMechanic.create(mechanic: mechanic_1, ride: ride_1)
+ride_mech_2 = RideMechanic.create(mechanic: mechanic_1, ride: ride_3)
+ride_mech_2 = RideMechanic.create(mechanic: mechanic_2, ride: ride_2)
