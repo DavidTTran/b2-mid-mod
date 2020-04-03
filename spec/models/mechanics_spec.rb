@@ -18,7 +18,6 @@ describe Mechanic do
         RideMechanic.create(mechanic: mechanic_1, ride: ride_3)
 
         expect(mechanic_1.rides_sorted).to eq([ride_2, ride_1, ride_3])
-
       end
     end
   end

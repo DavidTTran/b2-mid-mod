@@ -16,7 +16,5 @@ describe "amusments park show page" do
     expect(page).to have_content(ride_2.name)
     expect(page).to have_content(ride_3.name)
     expect(page).to have_content("Average Thrill Rating of Rides: 7.0/10")
-
   end
-
 end
