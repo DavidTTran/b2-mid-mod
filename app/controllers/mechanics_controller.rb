@@ -9,8 +9,13 @@ class MechanicsController < ApplicationController
   end
 
   def add_ride
-    mechanic = Mechanic.find(params[:mechanic_id])
-    RideMechanic.create(mechanic_id: mechanic.id, ride_id: params[:ride_id])
-    redirect_to "/mechanics/#{mechanic.id}"
+    @mechanic = Mechanic.find(params[:mechanic_id])
+    ride_mech = RideMechanic.new(mechanic_id: @mechanic.id, ride_id: params[:ride_id])
+    if ride_mech.save
+      redirect_to "/mechanics/#{@mechanic.id}"
+    else
+      flash[:error] = "A ride with that ID doesn't exist."
+      render :show
+    end
   end
 end
