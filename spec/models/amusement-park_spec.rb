@@ -14,5 +14,14 @@ describe AmusementPark do
 
       expect(park_1.average_thrill_rating).to eq(4.0)
     end
+
+    it "returns rides sorted by name" do
+      park_1 = AmusementPark.create({name: "Hersey Park", admission: 50.00})
+      ride_1 = park_1.rides.create({name: "B", thrill: 5})
+      ride_2 = park_1.rides.create({name: "C", thrill: 3})
+      ride_3 = park_1.rides.create({name: "A", thrill: 3})
+
+      expect(park_1.rides_sorted).to eq([ride_3, ride_1, ride_2])
+    end
   end
 end
