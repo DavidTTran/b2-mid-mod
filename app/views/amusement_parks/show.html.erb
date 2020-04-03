@@ -4,8 +4,6 @@
 <section>
   Rides: <% @amusement_park.rides.each do |ride| %>
     <li><%= ride.name %></li>
-    <li><%= ride.name %></li>
-    <li><%= ride.name %></li>
   <% end %>
 </section>
 <h4>Average Thrill Rating of Rides: <%= @amusement_park.average_thrill_rating %>/10</h4>
